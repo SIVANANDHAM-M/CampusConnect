@@ -22,6 +22,7 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 # Copy web resources (JSP, CSS, HTML, WEB-INF) to the ROOT application
 # This means your app will be accessible at domain.com/ instead of domain.com/CampusConnect/
 COPY src/main/webapp /usr/local/tomcat/webapps/ROOT
+COPY xml /usr/local/tomcat/webapps/ROOT/xml
 
 # Copy the compiled Java classes from the builder stage
 COPY --from=builder /app/build/classes /usr/local/tomcat/webapps/ROOT/WEB-INF/classes
