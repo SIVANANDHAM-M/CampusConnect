@@ -1,0 +1,11 @@
+build/
+bin/
+*.class
+*.war
+*.log
+.settings/
+.metadata/
+.git/
+.gitignore
+.classpath
+.project
