@@ -4,42 +4,41 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * DBConnection - Database utility class using standard JDBC DriverManager.
- * Automatically attempts connection with configured root credentials.
- */
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/campus_connect?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    private static final String USER = "root";
+    // Read from environment variables (used by Render in the cloud)
+    // with a fallback to localhost (if you run it locally on your PC)
+    private static final String URL = System.getenv("DB_URL") != null ? 
+            System.getenv("DB_URL") : "jdbc:mysql://localhost:3306/campus_connect";
+            
+    private static final String USER = System.getenv("DB_USER") != null ? 
+            System.getenv("DB_USER") : "root";
+            
+    private static final String PASS = System.getenv("DB_PASS") != null ? 
+            System.getenv("DB_PASS") : "";
 
-    static {
+    public static Connection getConnection() {
+        Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(URL, USER, PASS);
         } catch (ClassNotFoundException e) {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                System.err.println("Error: MySQL JDBC Driver not found in classpath!");
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * Gets an active Connection to the MySQL database.
-     */
-    public static Connection getConnection() throws SQLException {
-        try {
-            // First try empty password (standard default for local dev)
-            return DriverManager.getConnection(URL, USER, "");
+            System.err.println("MySQL JDBC Driver not found. " + e.getMessage());
         } catch (SQLException e) {
-            try {
-                // Fallback to 'root' password
-                return DriverManager.getConnection(URL, USER, "root");
-            } catch (SQLException ex) {
-                // Fallback to 'admin' password
-                return DriverManager.getConnection(URL, USER, "admin");
+            // If empty password fails locally, try alternative local passwords
+            if (System.getenv("DB_URL") == null) {
+                try {
+                    conn = DriverManager.getConnection(URL, USER, "root");
+                } catch (SQLException ex) {
+                    try {
+                        conn = DriverManager.getConnection(URL, USER, "admin");
+                    } catch (SQLException ex2) {
+                        System.err.println("Database connection failed: " + ex2.getMessage());
+                    }
+                }
+            } else {
+                System.err.println("Cloud Database connection failed: " + e.getMessage());
             }
         }
+        return conn;
     }
 }
