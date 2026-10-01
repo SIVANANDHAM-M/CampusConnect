@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================
+     XML SCHEMA DEFINITION (XSD): campus.xsd
+     PROJECT: CAMPUS CONNECT
+     DESCRIPTION: Enforces data types, patterns, and constraints on campus XML data.
+     ============================================================================ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Root Element -->
+    <xs:element name="campus">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="college" type="CollegeType"/>
+                <xs:element name="departments" type="DepartmentsType"/>
+                <xs:element name="facilities" type="FacilitiesType"/>
+                <xs:element name="contacts" type="ContactsType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- College Type -->
+    <xs:complexType name="CollegeType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="address" type="xs:string"/>
+            <xs:element name="website" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Departments Container -->
+    <xs:complexType name="DepartmentsType">
+        <xs:sequence>
+            <xs:element name="department" type="DepartmentType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DepartmentType">
+        <xs:sequence>
+            <xs:element name="deptCode" type="xs:string"/>
+            <xs:element name="deptName" type="xs:string"/>
+            <xs:element name="hod" type="xs:string"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="totalStudents" type="xs:positiveInteger"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Facilities Container -->
+    <xs:complexType name="FacilitiesType">
+        <xs:sequence>
+            <xs:element name="facility" type="FacilityType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FacilityType">
+        <xs:sequence>
+            <xs:element name="facId" type="xs:string"/>
+            <xs:element name="facName" type="xs:string"/>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="building" type="xs:string"/>
+            <xs:element name="timing" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Contacts Container -->
+    <xs:complexType name="ContactsType">
+        <xs:sequence>
+            <xs:element name="contact" type="ContactType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContactType">
+        <xs:sequence>
+            <xs:element name="office" type="xs:string"/>
+            <xs:element name="designation" type="xs:string"/>
+            <xs:element name="personName" type="xs:string"/>
+            <xs:element name="phone" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

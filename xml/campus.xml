@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="campus.xsl"?>
+<!DOCTYPE campus SYSTEM "campus.dtd">
+<!-- ============================================================================
+     CAMPUS DATA DATASET: campus.xml
+     PROJECT: CAMPUS CONNECT
+     DESCRIPTION: Structured static dataset of departments, facilities, and offices.
+     ============================================================================ -->
+<campus>
+    <college>
+        <name>CAMPUS CONNECT INSTITUTE OF TECHNOLOGY</name>
+        <code>CCIT-2026</code>
+        <address>University Avenue, Knowledge Park, Campus City - 600001</address>
+        <website>https://www.campusconnect.edu</website>
+    </college>
+
+    <departments>
+        <department>
+            <deptCode>CSE</deptCode>
+            <deptName>Computer Science &amp; Engineering</deptName>
+            <hod>Dr. K. Ramanathan</hod>
+            <location>CSE Main Block, 2nd Floor</location>
+            <email>cse.hod@campusconnect.edu</email>
+            <totalStudents>720</totalStudents>
+        </department>
+        <department>
+            <deptCode>ECE</deptCode>
+            <deptName>Electronics &amp; Communication Engineering</deptName>
+            <hod>Dr. S. Meenakshi</hod>
+            <location>ECE Block, 1st Floor</location>
+            <email>ece.hod@campusconnect.edu</email>
+            <totalStudents>480</totalStudents>
+        </department>
+        <department>
+            <deptCode>MECH</deptCode>
+            <deptName>Mechanical Engineering</deptName>
+            <hod>Dr. V. Arul</hod>
+            <location>Mechanical Workshop Block</location>
+            <email>mech.hod@campusconnect.edu</email>
+            <totalStudents>360</totalStudents>
+        </department>
+        <department>
+            <deptCode>CIVIL</deptCode>
+            <deptName>Civil Engineering</deptName>
+            <hod>Dr. P. Suresh</hod>
+            <location>Civil Annexe, Ground Floor</location>
+            <email>civil.hod@campusconnect.edu</email>
+            <totalStudents>240</totalStudents>
+        </department>
+    </departments>
+
+    <facilities>
+        <facility>
+            <facId>FAC-01</facId>
+            <facName>Central Central Library &amp; Learning Resource Center</facName>
+            <category>Academic</category>
+            <building>Knowledge Block</building>
+            <timing>08:00 AM - 08:00 PM</timing>
+            <description>3-story library equipped with 50,000+ volumes, digital lab, and quiet reading zones.</description>
+        </facility>
+        <facility>
+            <facId>FAC-02</facId>
+            <facName>Advanced Computing &amp; AI Research Lab</facName>
+            <category>Laboratory</category>
+            <building>CSE Block, Room 302</building>
+            <timing>08:30 AM - 06:00 PM</timing>
+            <description>High-performance GPU servers and software development workstations.</description>
+        </facility>
+        <facility>
+            <facId>FAC-03</facId>
+            <facName>Campus Student Canteen &amp; Food Court</facName>
+            <category>Dining</category>
+            <building>Student Activity Center</building>
+            <timing>07:00 AM - 09:00 PM</timing>
+            <description>Hygienic food court offering South Indian, North Indian, fresh juice, and snack counters.</description>
+        </facility>
+        <facility>
+            <facId>FAC-04</facId>
+            <facName>Health &amp; First Aid Medical Center</facName>
+            <category>Healthcare</category>
+            <building>Amenities Building</building>
+            <timing>24 Hours Emergency Service</timing>
+            <description>On-campus clinic with resident physician, nursing staff, and emergency ambulance.</description>
+        </facility>
+    </facilities>
+
+    <contacts>
+        <contact>
+            <office>Administrative Office</office>
+            <designation>Administrative Officer</designation>
+            <personName>Mr. N. Venkatesh</personName>
+            <phone>044-24500001</phone>
+            <email>admin@campusconnect.edu</email>
+        </contact>
+        <contact>
+            <office>Controller of Examinations</office>
+            <designation>COE Head</designation>
+            <personName>Dr. M. Ganesan</personName>
+            <phone>044-24500002</phone>
+            <email>coe@campusconnect.edu</email>
+        </contact>
+        <contact>
+            <office>Training &amp; Placement Cell</office>
+            <designation>Placement Director</designation>
+            <personName>Prof. R. Priya</personName>
+            <phone>044-24500003</phone>
+            <email>placement@campusconnect.edu</email>
+        </contact>
+        <contact>
+            <office>Hostel Chief Warden Office</office>
+            <designation>Chief Warden</designation>
+            <personName>Dr. R. Sundaram</personName>
+            <phone>044-24500004</phone>
+            <email>warden@campusconnect.edu</email>
+        </contact>
+    </contacts>
+</campus>

@@ -1,0 +1,7 @@
+build/
+bin/
+*.class
+*.war
+*.log
+.settings/
+.metadata/

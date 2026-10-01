@@ -1,0 +1,37 @@
+<!-- ============================================================================
+     DOCUMENT TYPE DEFINITION (DTD): campus.dtd
+     PROJECT: CAMPUS CONNECT
+     DESCRIPTION: Validates structural hierarchy of campus XML data.
+     ============================================================================ -->
+
+<!ELEMENT campus (college, departments, facilities, contacts)>
+<!ELEMENT college (name, code, address, website)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT code (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT website (#PCDATA)>
+
+<!ELEMENT departments (department+)>
+<!ELEMENT department (deptCode, deptName, hod, location, email, totalStudents)>
+<!ELEMENT deptCode (#PCDATA)>
+<!ELEMENT deptName (#PCDATA)>
+<!ELEMENT hod (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT totalStudents (#PCDATA)>
+
+<!ELEMENT facilities (facility+)>
+<!ELEMENT facility (facId, facName, category, building, timing, description)>
+<!ELEMENT facId (#PCDATA)>
+<!ELEMENT facName (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT building (#PCDATA)>
+<!ELEMENT timing (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT contacts (contact+)>
+<!ELEMENT contact (office, designation, personName, phone, email)>
+<!ELEMENT office (#PCDATA)>
+<!ELEMENT designation (#PCDATA)>
+<!ELEMENT personName (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
